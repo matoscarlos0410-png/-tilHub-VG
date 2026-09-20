@@ -1,0 +1,11 @@
+{
+  "name": "ÚtilHub V12 — MASTER-NOVA",
+  "short_name": "ÚtilHub",
+  "description": "Herramientas útiles para tu día a día, sin IA.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050914",
+  "theme_color": "#07111f",
+  "lang": "es"
+}
