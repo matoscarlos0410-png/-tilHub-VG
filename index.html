@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="ÚtilHub V12 MASTER-NOVA: herramientas útiles para tu día a día.">
+
+  <title>ÚtilHub V12 — MASTER-NOVA</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- FONDO NOVA -->
+  <div class="nova-bg" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div id="particles"></div>
+  </div>
+
+  <!-- CABECERA -->
+  <header class="topbar">
+
+    <a class="brand" href="#inicio">
+      <span class="brand-mark">U</span>
+      <span>Útil<span>Hub</span></span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="mainNav">
+      <a href="#herramientas">Herramientas</a>
+      <a href="#comida">Comida</a>
+      <a href="#compras">Compras</a>
+      <a href="#cerca">Cerca de mí</a>
+      <a href="#ajustes">Ajustes</a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+
+      <div class="hero-copy">
+
+        <p class="eyebrow">V12 · MASTER-NOVA</p>
+
+        <h1>
+          Todo lo útil,
+          <br>
+          <span>en un solo lugar.</span>
+        </h1>
+
+        <p>
+          Herramientas para estudiar, organizarte, calcular,
+          convertir, comprar y resolver tareas del día a día.
+        </p>
+
+        <div class="hero-actions">
+
+          <a class="btn primary" href="#herramientas">
+            Explorar herramientas
+          </a>
+
+          <button class="btn ghost" id="installBtn" hidden>
+            Instalar ÚtilHub
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="nova-core">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="core">
+          NOVA
+        </div>
+      </div>
+
+    </section>
+
+    <!-- BUSCADOR -->
+    <section class="search-area">
+
+      <div class="search-box">
+
+        <span>⌕</span>
+
+        <input
+          id="globalSearch"
+          type="search"
+          placeholder="Buscar una herramienta… (Ctrl + K)"
+          autocomplete="off"
+        >
+
+        <kbd>Ctrl K</kbd>
+
+      </div>
+
+      <div id="searchResults" class="search-results"></div>
+
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="stats">
+
+      <div>
+        <strong id="toolCount">0</strong>
+        <span>herramientas</span>
+      </div>
+
+      <div>
+        <strong id="favoriteCount">0</strong>
+        <span>favoritos</span>
+      </div>
+
+      <div>
+        <strong id="recentCount">0</strong>
+        <span>recientes</span>
+      </div>
+
+      <div>
+        <strong id="networkState">●</strong>
+        <span>conexión</span>
+      </div>
+
+    </section>
+
+    <!-- HERRAMIENTAS -->
+    <section class="section" id="herramientas">
+
+      <div class="section-head">
+
+        <div>
+          <p class="eyebrow">CENTRO DE HERRAMIENTAS</p>
+          <h2>Elige lo que necesitas</h2>
+        </div>
+
+        <div class="filters" id="filters"></div>
+
+      </div>
+
+      <div id="toolGrid" class="tool-grid"></div>
+
+    </section>
+
+    <!-- COMIDA -->
+    <section class="section split-section" id="comida">
+
+      <div>
+
+        <p class="eyebrow">COMIDA</p>
+
+        <h2>Busca y pide por tu cuenta</h2>
+
+        <p class="muted">
+          ÚtilHub no hace pedidos por ti.
+          Te lleva a servicios de búsqueda para que tú elijas
+          y realices el pedido.
+        </p>
+
+      </div>
+
+      <form class="action-card" id="foodForm">
+
+        <input
+          id="foodQuery"
+          required
+          placeholder="Ej.: hamburguesas, pizza, menú…"
+        >
+
+        <input
+          id="foodPlace"
+          placeholder="Ciudad o zona (opcional)"
+        >
+
+        <button class="btn primary">
+          Buscar comida
+        </button>
+
+      </form>
+
+    </section>
+
+    <!-- COMPRAS -->
+    <section class="section split-section" id="compras">
+
+      <div>
+
+        <p class="eyebrow">COMPRAS</p>
+
+        <h2>Encuentra productos y tiendas</h2>
+
+        <p class="muted">
+          Compara opciones y realiza la compra directamente
+          en el sitio elegido.
+        </p>
+
+      </div>
+
+      <form class="action-card" id="shopForm">
+
+        <input
+          id="shopQuery"
+          required
+          placeholder="Ej.: audífonos, mochila, útiles…"
+        >
+
+        <button class="btn primary">
+          Buscar productos
+        </button>
+
+      </form>
+
+    </section>
+
+    <!-- CERCA -->
+    <section class="section" id="cerca">
+
+      <div class="section-head">
+
+        <div>
+          <p class="eyebrow">CERCA DE MÍ</p>
+          <h2>Busca lugares rápidamente</h2>
+        </div>
+
+      </div>
+
+      <div class="near-grid">
+
+        <button data-near="restaurantes">🍔 Restaurantes</button>
+        <button data-near="supermercados">🛒 Supermercados</button>
+        <button data-near="farmacias">💊 Farmacias</button>
+        <button data-near="tiendas">🏪 Tiendas</button>
+        <button data-near="hospitales">🏥 Hospitales</button>
+        <button data-near="cajeros">🏧 Cajeros</button>
+        <button data-near="gasolineras">⛽ Gasolineras</button>
+        <button data-near="servicios">🛠️ Servicios</button>
+
+      </div>
+
+    </section>
+
+    <!-- AJUSTES -->
+    <section class="section" id="ajustes">
+
+      <div class="section-head">
+
+        <div>
+          <p class="eyebrow">MASTER-NOVA</p>
+          <h2>Ajustes y datos</h2>
+        </div>
+
+      </div>
+
+      <div class="settings-grid">
+
+        <label class="setting">
+          <span>🌙 Modo oscuro</span>
+          <input id="themeToggle" type="checkbox" checked>
+        </label>
+
+        <label class="setting">
+          <span>✨ Animaciones NOVA FLOW</span>
+          <input id="animToggle" type="checkbox" checked>
+        </label>
+
+        <label class="setting">
+          <span>🖱️ Efecto de cursor</span>
+          <input id="cursorToggle" type="checkbox" checked>
+        </label>
+
+        <button class="btn ghost" id="exportBtn">
+          ⬇ Exportar datos
+        </button>
+
+        <label class="btn ghost file-btn">
+          ⬆ Importar datos
+          <input
+            id="importFile"
+            type="file"
+            accept=".json,application/json"
+            hidden
+          >
+        </label>
+
+        <button class="btn danger" id="clearBtn">
+          Borrar datos locales
+        </button>
+
+      </div>
+
+      <p class="tiny">
+        Las notas, tareas, listas, favoritos e historial
+        se guardan en este navegador.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" hidden>
+
+    <div class="modal-card">
+
+      <button class="modal-close" id="modalClose">
+        ×
+      </button>
+
+      <h3 id="modalTitle"></h3>
+
+      <div id="modalBody"></div>
+
+    </div>
+
+  </div>
+
+  <!-- PIE -->
+  <footer>
+
+    <strong>
+      ÚtilHub V12 — MASTER-NOVA
+    </strong>
+
+    <span>
+      Sin IA · Sin claves privadas · Hecho para ser útil.
+    </span>
+
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .catch(console.warn);
+      });
+    }
+  </script>
+
+</body>
+</html>
